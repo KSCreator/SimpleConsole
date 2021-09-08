@@ -32,7 +32,7 @@ void Console::appendText(const QString &text)
 
 Console::~Console()
 {
-    qDebug("this was called!");
+    //qDebug("this was called!");
     m_process.kill();
 }
 
