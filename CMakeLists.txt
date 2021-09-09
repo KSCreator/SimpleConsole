@@ -3,7 +3,7 @@ project(Console VERSION 1.0 LANGUAGES CXX)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+#set(CMAKE_AUTORCC ON)
 
 #if you are using ui files then uncomment it
 #set(CMAKE_AUTOUIC ON)
