@@ -19,6 +19,9 @@ int main(int argc, char *argv[])
     }
     QScopedArrayPointer<char*> qt_args(new char*[qt_argc]);
     const int qt_argc_original = qt_argc;
+
+    for(int i = 0; i < qt_argc; ++i)
+        qt_args[i] = argv[i];
     QApplication a(qt_argc, qt_args.data());    //qt argc may changed
     QString program_name(argv[qt_argc_original+1]);
     QStringList user_args;
