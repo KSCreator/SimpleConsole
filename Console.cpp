@@ -5,7 +5,8 @@
 Console::Console(const QString &program, const QStringList &arguments, QWidget *parent)
     :
       QTextEdit(parent),
-      m_finished(false)
+      m_finished(false),
+      m_manually_terminated(false)
 {
     setStyleSheet("background-color:black;color:white;");
     setContextMenuPolicy(Qt::NoContextMenu);    //disable menu
@@ -38,6 +39,8 @@ Console::~Console()
 
 void Console::handleProcessError(QProcess::ProcessError error)
 {
+    if(m_manually_terminated)   //do not print "program crashed" message if it was terminated manually
+        return;                 //e.g. user pressed CTRL + C
     QString error_string;
     switch(error)
     {
@@ -95,6 +98,7 @@ void Console::keyPressEvent(QKeyEvent *e)
         if(key == Qt::Key_C)       //ctrl + c (terminate program)
         {
             e->accept();
+            m_manually_terminated = true;
             m_process.kill();
         }
         else
