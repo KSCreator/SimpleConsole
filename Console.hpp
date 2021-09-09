@@ -29,6 +29,7 @@ private:
     QElapsedTimer m_timer;
     bool m_finished;
     int m_reachable_pos;
+    bool m_manually_terminated;
 };
 
 #endif // WIDGET_HPP
