@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Console VERSION 0.2 LANGUAGES CXX)
+project(SimpleConsole VERSION 0.2 LANGUAGES CXX)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
 set(CMAKE_AUTOMOC ON)
